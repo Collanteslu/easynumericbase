@@ -91,64 +91,76 @@ class _NumericBasePageState extends State<NumericBasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            //caja para introducir texto
-            TextField(
-              controller: _controllerHexadecimal,
-              decoration: const InputDecoration(
-                labelText: 'Hexadecimal',
+      body: Container(
+        margin: const EdgeInsets.all(100.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              //caja para introducir texto
+              TextField(
+                controller: _controllerHexadecimal,
+                decoration: const InputDecoration(
+                  labelText: 'Hexadecimal',
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    _textHexadecimal = value;
+                    chageTextHexadecimal(_textHexadecimal);
+                  });
+                },
               ),
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  _textHexadecimal = value;
-                  chageTextHexadecimal(_textHexadecimal);
-                });
-              },
-            ),
-            TextField(
-              controller: _controllerDecimal,
-              decoration: const InputDecoration(
-                labelText: 'Decimal',
+              const SizedBox(
+                height: 30.0,
               ),
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  _textDecimal = value;
-                  chageTextDecimal(_textDecimal);
-                });
-              },
-            ),
-            TextField(
-              controller: _controllerBinary,
-              decoration: const InputDecoration(
-                labelText: 'Binary',
+              TextField(
+                controller: _controllerDecimal,
+                decoration: const InputDecoration(
+                  labelText: 'Decimal',
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    _textDecimal = value;
+                    chageTextDecimal(_textDecimal);
+                  });
+                },
               ),
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  _textBinary = value;
-                  chageTextBinary(_textBinary);
-                });
-              },
-            ),
-            TextField(
-              controller: _controllerOctal,
-              decoration: const InputDecoration(
-                labelText: 'Octal',
+              const SizedBox(
+                height: 30.0,
               ),
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  _textOctal = value;
-                  chageTextOctal(_textOctal);
-                });
-              },
-            ),
-          ],
+              TextField(
+                controller: _controllerBinary,
+                decoration: const InputDecoration(
+                  labelText: 'Binary',
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    _textBinary = value;
+                    chageTextBinary(_textBinary);
+                  });
+                },
+              ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              TextField(
+                controller: _controllerOctal,
+                decoration: const InputDecoration(
+                  labelText: 'Octal',
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    _textOctal = value;
+                    chageTextOctal(_textOctal);
+                  });
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
